@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loan Eligibility Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e3f2fd;
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        .result-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            padding: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #2196F3;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .approved {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        .not-approved {
+            color: #F44336;
+            font-weight: bold;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #2196F3;
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+
+        a:hover {
+            background-color: #1976D2;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        <h1>Loan Eligibility Result</h1>
+        <p>Your loan status is: 
+            <span class="{{ 'approved' if result == 'Approved' else 'not-approved' }}">
+                {{ result }}
+            </span>
+        </p>
+
+        {% if result == "Approved" %}
+        <p>Estimated Loan Amount: <strong>₹{{ loan_amount }}</strong></p>
+        {% else %}
+        <p>Unfortunately, you are not eligible for a loan at this time.</p>
+        {% endif %}
+
+        <a href="/">Check Again</a>
+    </div>
+</body>
+</html>

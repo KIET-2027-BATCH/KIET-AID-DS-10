@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loan Eligibility Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('"C:\Users\likhi\OneDrive\Documents\Loan_Eligibility_Project\static\images\index_background.jpg"'); /* Background image path */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(190, 188, 189, 0.5); /* Dark overlay for better text visibility */
+            z-index: 0;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            z-index: 1; /* Ensures content is above the overlay */
+        }
+
+        h1 {
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            text-align: left;
+            margin: 8px 0 4px;
+            font-weight: bold;
+        }
+
+        select, input[type="text"] {
+            padding: 10px;
+            border: 2px solid #db3faa;
+            border-radius: 8px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: #ffffff;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #5431dd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Loan Eligibility Checker</h1>
+        <form action="/loan" method="post">
+            <label for="gender">Gender:</label>
+            <select name="gender" id="gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+
+            <label for="marital_status">Marital Status:</label>
+            <select name="marital_status" id="marital_status">
+                <option value="Married">Married</option>
+                <option value="Unmarried">Unmarried</option>
+            </select>
+
+            <label for="applicant_income">Applicant Income:</label>
+            <input type="text" name="applicant_income" id="applicant_income">
+
+            <label for="coapplicant_income">Co-applicant Income:</label>
+            <input type="text" name="coapplicant_income" id="coapplicant_income">
+
+            <input type="submit" value="Check Eligibility">
+        </form>
+    </div>
+</body>
+</html>
